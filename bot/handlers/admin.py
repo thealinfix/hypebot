@@ -5,6 +5,7 @@ import logging
 import asyncio
 from typing import List, Dict, Any
 from datetime import datetime, timezone, timedelta
+from datetime import datetime, timezone
 
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import ContextTypes
@@ -12,7 +13,7 @@ from telegram.constants import ParseMode
 
 from config import ADMIN_CHAT_ID
 from bot.utils.decorators import admin_only, error_handler, log_action
-from bot.utils.state import get_state, save_state, reset_state
+from bot.utils.state import get_state, save_state
 from bot.utils.keyboards import KeyboardBuilder
 from bot.models.post import Post, PostCollection
 
@@ -171,7 +172,7 @@ async def analytics_command(update: Update, context: ContextTypes.DEFAULT_TYPE) 
     # Publishing stats
     sent_count = len(state.get("sent_links", []))
     if sent_count > 0:
-        analytics_text += f"\n<b>Публикации:</b>\n"
+        analytics_text += "\n<b>Публикации:</b>\n"
         analytics_text += f"• Всего опубликовано: {sent_count}\n"
         
         # Average per day (rough estimate)

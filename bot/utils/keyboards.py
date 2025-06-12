@@ -2,7 +2,7 @@
 Telegram keyboard builders
 """
 from typing import List, Optional, Dict, Any, Tuple
-from telegram import InlineKeyboardButton, InlineKeyboardMarkup, ReplyKeyboardMarkup, KeyboardButton
+from telegram import InlineKeyboardButton, InlineKeyboardMarkup, ReplyKeyboardMarkup
 import logging
 
 logger = logging.getLogger(__name__)

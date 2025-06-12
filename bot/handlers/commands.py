@@ -9,7 +9,7 @@ from telegram.constants import ParseMode
 from config import ADMIN_CHAT_ID
 from bot.utils.decorators import admin_only, error_handler, log_action, typing_action
 from bot.utils.keyboards import KeyboardBuilder
-from bot.utils.state import get_state, reset_state, save_state
+from bot.utils.state import get_state, save_state
 from bot.services.scheduler import scheduler
 
 logger = logging.getLogger(__name__)
@@ -36,7 +36,7 @@ async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> N
     )
     
     if is_admin:
-        welcome_text += f"\n\n🔐 <i>Вы вошли как администратор</i>"
+        welcome_text += "\n\n🔐 <i>Вы вошли как администратор</i>"
     
     await update.message.reply_text(
         welcome_text,

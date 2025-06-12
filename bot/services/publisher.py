@@ -5,14 +5,12 @@ import logging
 from typing import List, Optional, Dict, Any
 from datetime import datetime, timezone
 
-from telegram import Bot, InputMediaPhoto, InputMediaDocument
-from telegram.error import TelegramError, BadRequest
+from telegram import Bot, InputMediaPhoto
+from telegram.error import TelegramError
 from telegram.constants import ParseMode
 
-from bot.models.post import Post, PostStatus
+from bot.models.post import Post
 from bot.utils.state import get_state, update_state, save_state
-from bot.utils.helpers import chunks
-from bot.services.image_processor import image_processor
 
 logger = logging.getLogger(__name__)
 
@@ -44,18 +42,16 @@ class Publisher:
             # Send to channel
             if media_group:
                 # Send as media group
-                messages = await bot.send_media_group(channel, media_group)
-                message_ids = [msg.message_id for msg in messages]
+                await bot.send_media_group(channel, media_group)
             else:
                 # Send as text message
                 caption = self._build_caption(post, for_channel=True)
-                message = await bot.send_message(
+                await bot.send_message(
                     channel,
                     caption,
                     parse_mode=ParseMode.HTML,
                     disable_web_page_preview=False
                 )
-                message_ids = [message.message_id]
             
             # Update post status
             post.mark_as_published()

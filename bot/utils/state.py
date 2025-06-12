@@ -5,8 +5,7 @@ import json
 import asyncio
 import aiofiles
 from datetime import datetime, timezone
-from typing import Dict, Any, Optional
-from pathlib import Path
+from typing import Dict, Any
 import logging
 
 from config import STATE_FILE, MAX_POST_AGE_DAYS, MAX_PENDING_POSTS, DEFAULT_TIMEZONE, TELEGRAM_CHANNEL

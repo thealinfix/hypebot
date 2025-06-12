@@ -2,21 +2,21 @@
 Callback query handlers
 """
 import logging
-from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
+from telegram import Update
 from telegram.ext import ContextTypes
 from telegram.constants import ParseMode
 from telegram.error import BadRequest
 
 from config import ADMIN_CHAT_ID
-from bot.utils.decorators import error_handler, log_action
+from bot.utils.decorators import error_handler
 from bot.utils.keyboards import KeyboardBuilder
-from bot.utils.state import get_state, update_state, save_state, reset_state
-from bot.utils.time_utils import get_user_timezone, localize_datetime, parse_schedule_time
+from bot.utils.state import get_state, update_state, save_state
+from bot.utils.time_utils import get_user_timezone, localize_datetime
 from bot.utils.tags import filter_posts_by_tags, get_all_unique_tags
 from bot.models.post import Post
 from bot.services.publisher import publisher
 from bot.services.ai_generator import ai_generator
-from datetime import datetime, timezone
+from datetime import datetime
 
 logger = logging.getLogger(__name__)
 
@@ -236,7 +236,7 @@ async def show_main_menu(query, is_admin):
     )
     
     if is_admin:
-        welcome_text += f"\n\n🔐 <i>Вы вошли как администратор</i>"
+        welcome_text += "\n\n🔐 <i>Вы вошли как администратор</i>"
     
     await query.edit_message_text(
         welcome_text,

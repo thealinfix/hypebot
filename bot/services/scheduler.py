@@ -2,8 +2,8 @@
 Task scheduling service
 """
 import logging
-from datetime import datetime, timezone, timedelta
-from typing import Optional, Callable, Any
+from datetime import datetime, timezone
+from typing import Callable, Any
 
 from telegram.ext import Application, JobQueue
 from telegram.ext import ContextTypes
@@ -11,7 +11,7 @@ from telegram.ext import ContextTypes
 from bot.services.parser import parser_service
 from bot.services.publisher import publisher
 from bot.utils.state import get_state, update_state
-from bot.models.post import Post, PostCollection
+from bot.models.post import Post
 from config import CHECK_INTERVAL, ADMIN_CHAT_ID
 
 logger = logging.getLogger(__name__)

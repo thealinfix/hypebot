@@ -6,7 +6,7 @@ import json
 import logging
 from datetime import datetime, timezone
 from typing import List, Dict, Any, Optional, Set
-from urllib.parse import urlparse, urljoin
+from urllib.parse import urlparse
 
 import httpx
 from bs4 import BeautifulSoup, FeatureNotFound

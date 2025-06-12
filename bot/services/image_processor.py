@@ -5,7 +5,7 @@ Image processing service
 import asyncio
 import logging
 from io import BytesIO
-from typing import Optional, List, Tuple, Dict, Any
+from typing import Optional, List, Tuple
 from pathlib import Path
 
 import httpx

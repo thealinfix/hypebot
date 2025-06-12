@@ -2,11 +2,8 @@
 """
 HypeBot - Sneaker and Fashion Release Monitor
 """
-import logging
-import asyncio
 import signal
 import sys
-from pathlib import Path
 
 from telegram.ext import Application
 from telegram.error import Conflict

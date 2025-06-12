@@ -3,14 +3,11 @@ AI content generation service using OpenAI
 """
 import base64
 import logging
-from typing import Optional, List, Dict, Any
-from io import BytesIO
+from typing import Optional
 
 from openai import AsyncOpenAI
-from PIL import Image
 
 from config import OPENAI_API_KEY, IMAGE_STYLES
-from bot.utils.helpers import is_valid_url
 
 logger = logging.getLogger(__name__)
 

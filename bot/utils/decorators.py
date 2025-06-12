@@ -3,7 +3,7 @@ Decorators for bot handlers
 """
 import functools
 import logging
-from typing import Callable, Any
+from typing import Callable
 from telegram import Update
 from telegram.ext import ContextTypes
 

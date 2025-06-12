@@ -12,11 +12,9 @@ from bot.utils.state import get_state, update_state, save_state, reset_state
 from bot.utils.time_utils import parse_schedule_time, get_user_timezone, localize_datetime
 from bot.utils.helpers import validate_channel_format
 from bot.utils.keyboards import KeyboardBuilder
-from bot.models.post import Post, ThoughtPost
+from bot.models.post import Post
 from bot.services.ai_generator import ai_generator
-from bot.services.image_processor import image_processor
 from bot.services.publisher import publisher
-from datetime import datetime, timezone
 
 logger = logging.getLogger(__name__)
 
@@ -349,10 +347,6 @@ async def handle_document(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
             await update.message.reply_text(
                 "📎 Получен документ-изображение. Обрабатываю..."
             )
-            
-            # Download and process
-            file = await context.bot.get_file(document.file_id)
-            image_bytes = await file.download_as_bytearray()
             
             # Create fake photo update
             class FakePhoto:
