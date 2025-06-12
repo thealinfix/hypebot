@@ -61,15 +61,15 @@ async def export_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
         
         # Format as text
         export_text = (
-            f"📊 <b>HypeBot Data Export</b>\n"
+            "📊 <b>HypeBot Data Export</b>\n"
             f"📅 {summary['export_date']}\n\n"
-            f"<b>Statistics:</b>\n"
+            "<b>Statistics:</b>\n"
             f"• Pending: {summary['stats']['pending_posts']}\n"
             f"• Scheduled: {summary['stats']['scheduled_posts']}\n"
             f"• Favorites: {summary['stats']['favorites']}\n"
             f"• Published: {summary['stats']['sent_posts']}\n"
             f"• Generated images: {summary['stats']['generated_images']}\n\n"
-            f"<b>Settings:</b>\n"
+            "<b>Settings:</b>\n"
             f"• Channel: {summary['settings']['channel']}\n"
             f"• Timezone: {summary['settings']['timezone']}\n"
             f"• Auto-publish: {'✅' if summary['settings']['auto_publish'] else '❌'}\n"
@@ -148,7 +148,7 @@ async def analytics_command(update: Update, context: ContextTypes.DEFAULT_TYPE) 
     # Build analytics text
     analytics_text = (
         "📊 <b>Детальная аналитика</b>\n\n"
-        f"<b>Посты по времени:</b>\n"
+        "<b>Посты по времени:</b>\n"
         f"• Сегодня: {len(today_posts)}\n"
         f"• За неделю: {len(week_posts)}\n"
         f"• За месяц: {len(month_posts)}\n"
@@ -170,7 +170,7 @@ async def analytics_command(update: Update, context: ContextTypes.DEFAULT_TYPE) 
     # Publishing stats
     sent_count = len(state.get("sent_links", []))
     if sent_count > 0:
-        analytics_text += f"\n<b>Публикации:</b>\n"
+        analytics_text += "\n<b>Публикации:</b>\n"
         analytics_text += f"• Всего опубликовано: {sent_count}\n"
         
         # Average per day (rough estimate)
@@ -202,17 +202,17 @@ async def debug_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> N
     
     debug_info = (
         "🔧 <b>Debug Information</b>\n\n"
-        f"<b>System:</b>\n"
+        "<b>System:</b>\n"
         f"• Python: {sys.version.split()[0]}\n"
         f"• Platform: {platform.system()} {platform.release()}\n"
         f"• PTB: {ptb_version}\n"
         f"• OpenAI: {openai_version}\n\n"
-        f"<b>Bot State:</b>\n"
+        "<b>Bot State:</b>\n"
         f"• State file size: {len(str(state))} chars\n"
         f"• Memory usage: ~{sys.getsizeof(state) / 1024:.1f} KB\n"
         f"• Pending posts: {len(state.get('pending', {}))}\n"
         f"• Image cache: {len(state.get('generated_images', {}))}\n\n"
-        f"<b>Configuration:</b>\n"
+        "<b>Configuration:</b>\n"
         f"• Admin ID: {ADMIN_CHAT_ID}\n"
         f"• Channel: {state.get('channel', 'Not set')}\n"
         f"• Timezone: {state.get('timezone', 'UTC')}\n"
@@ -327,7 +327,7 @@ async def batch_publish_favorites(query, context: ContextTypes.DEFAULT_TYPE) -> 
             await asyncio.sleep(2)
     
     await query.edit_message_text(
-        f"✅ Массовая публикация завершена!\n\n"
+        "✅ Массовая публикация завершена!\n\n"
         f"Опубликовано: {published}\n"
         f"Ошибок: {errors}"
     )
@@ -343,7 +343,7 @@ async def batch_delete_old(query, context: ContextTypes.DEFAULT_TYPE) -> None:
     await save_state()
     
     await query.edit_message_text(
-        f"🗑 <b>Очистка завершена</b>\n\n"
+        "🗑 <b>Очистка завершена</b>\n\n"
         f"Было постов: {before_count}\n"
         f"Удалено: {removed}\n"
         f"Осталось: {len(state['pending'])}",
@@ -390,10 +390,10 @@ async def monitor_performance(update: Update, context: ContextTypes.DEFAULT_TYPE
         
         performance_text = (
             "📈 <b>Производительность бота</b>\n\n"
-            f"<b>Память:</b>\n"
+            "<b>Память:</b>\n"
             f"• RAM: {memory_info.rss / 1024 / 1024:.1f} MB\n"
             f"• Virtual: {memory_info.vms / 1024 / 1024:.1f} MB\n\n"
-            f"<b>CPU:</b>\n"
+            "<b>CPU:</b>\n"
             f"• Использование: {process.cpu_percent(interval=1)}%\n"
             f"• Потоков: {process.num_threads()}\n"
         )
