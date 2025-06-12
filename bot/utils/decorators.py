@@ -79,7 +79,7 @@ def error_handler(func: Callable) -> Callable:
                 await update.callback_query.answer(error_message, show_alert=True)
                 try:
                     await update.callback_query.edit_message_text(error_message)
-                except:
+                except Exception:
                     pass
     
     return wrapper

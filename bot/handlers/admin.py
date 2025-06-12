@@ -129,7 +129,7 @@ async def analytics_command(update: Update, context: ContextTypes.DEFAULT_TYPE) 
                 week_posts.append(post)
             if age.days < 30:
                 month_posts.append(post)
-        except:
+        except Exception:
             continue
     
     # Source analytics

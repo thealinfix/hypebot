@@ -88,7 +88,7 @@ class Scheduler:
                             progress_msg.chat.id,
                             progress_msg.message_id
                         )
-                    except:
+                    except Exception:
                         pass
             
             # Fetch new releases
@@ -170,7 +170,7 @@ class Scheduler:
                         ADMIN_CHAT_ID,
                         f"❌ Ошибка при проверке релизов: {str(e)}"
                     )
-                except:
+                except Exception:
                     pass
     
     async def check_scheduled_posts_job(self, context: ContextTypes.DEFAULT_TYPE) -> None:

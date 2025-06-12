@@ -333,7 +333,7 @@ class ImageProcessor:
                 try:
                     font_size = int(min(img.width, img.height) * 0.05)
                     font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", font_size)
-                except:
+                except OSError:
                     font = ImageFont.load_default()
                 
                 # Get text size
