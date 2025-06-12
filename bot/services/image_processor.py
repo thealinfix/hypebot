@@ -1,11 +1,12 @@
-from typing import Dict, Any
 """
 Image processing service
 """
+
+from typing import Dict, Any, Optional, List, Tuple
+
 import asyncio
 import logging
 from io import BytesIO
-from typing import Optional, List, Tuple
 from pathlib import Path
 
 import httpx
