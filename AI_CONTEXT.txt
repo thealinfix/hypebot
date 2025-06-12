@@ -1,0 +1,23 @@
+CONTEXT FOR AI ASSISTANT:
+
+You are helping refactor a Python Telegram bot (hypebot.py) into a modular architecture.
+
+Original: 2500+ line monolithic bot for sneaker/fashion news monitoring
+Tech: Python 3.10+, python-telegram-bot, OpenAI API, asyncio
+
+Current task: Creating modular files one by one
+Style: Full implementation, no placeholders, async/await, proper error handling
+
+To resume:
+1. Run: python3 next_file.py
+2. Create the indicated file
+3. Follow patterns from existing files in bot/utils/
+
+Key patterns:
+- Async functions with proper error handling
+- Logging via logger = logging.getLogger(__name__)
+- State access via bot/utils/state.py functions
+- Decorators from bot/utils/decorators.py
+- Time handling via bot/utils/time_utils.py
+
+Next file will be shown by next_file.py script.
