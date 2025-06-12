@@ -77,5 +77,5 @@ async def error_handler(update, context):
                 f"Error: {type(context.error).__name__}: {str(context.error)}"
             )
             await context.bot.send_message(ADMIN_CHAT_ID, error_message)
-    except:
+    except Exception:
         pass
