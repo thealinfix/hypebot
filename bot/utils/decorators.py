@@ -85,14 +85,17 @@ def error_handler(func: Callable) -> Callable:
     return wrapper
 
 
+from telegram.constants import ChatAction
+
+
 def typing_action(func: Callable) -> Callable:
     """Decorator to show typing action"""
     @functools.wraps(func)
     async def wrapper(update: Update, context: ContextTypes.DEFAULT_TYPE, *args, **kwargs):
-        if update.message:
-            await update.message.chat.send_action("typing")
+        if getattr(update, "effective_chat", None):
+            await update.effective_chat.send_action(ChatAction.TYPING)
         return await func(update, context, *args, **kwargs)
-    
+
     return wrapper
 
 
