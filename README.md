@@ -28,6 +28,12 @@ Edit `.env` file with your tokens:
 - `ADMIN_CHAT_ID` - Your Telegram ID
 - `OPENAI_API_KEY` - OpenAI API key
 
+## Установка зависимостей для разработки и тестов
+
+```bash
+pip install -r requirements.txt && pip install pytest pytest-asyncio
+```
+
 ## 🔧 For Developers
 
 ### Architecture Overview
