@@ -88,3 +88,45 @@ Required in .env:
 git add .
 git commit -m "Your changes"
 git push
+
+## Common Improvements and How to Implement Them
+
+### Adding New Parsing Source
+1. Add source configuration to SOURCES in config.py
+2. If custom parsing needed, add method to bot/services/parser.py
+3. Test with: python -m bot.services.parser test_sources
+
+### Adding New AI Feature
+1. Create new method in bot/services/ai_generator.py
+2. Add handler in appropriate file in bot/handlers/
+3. Register handler in bot/handlers/__init__.py
+4. Update keyboards in bot/utils/keyboards.py if needed
+
+### Database Integration
+1. Create schema in bot/models/database.py
+2. Add database service in bot/services/db.py
+3. Update bot/utils/state.py to use DB
+4. Create migration script in scripts/migrate_to_db.py
+
+### Performance Optimization Tips
+- Current bottlenecks: Synchronous image downloads, Sequential source parsing
+- Solutions: Use asyncio.gather() for parallel operations
+
+### Adding New Command
+1. Create command handler in bot/handlers/commands.py
+2. Register in bot/handlers/__init__.py
+3. Add to help text in bot/handlers/commands.py
+
+### Error Handling Pattern
+- Use try/except blocks
+- Log errors with logger.error()
+- Notify admin for critical errors
+- Re-raise unexpected errors
+
+### Debugging Tips
+1. Enable debug logging: logging.basicConfig(level=logging.DEBUG)
+2. Test specific module: python -m bot.services.parser
+3. Check state: cat data/state.json | python -m json.tool
+
+### Performance Profiling
+Use cProfile and pstats for profiling bot performance

@@ -27,3 +27,23 @@ Edit `.env` file with your tokens:
 - `TELEGRAM_CHANNEL` - Target channel
 - `ADMIN_CHAT_ID` - Your Telegram ID
 - `OPENAI_API_KEY` - OpenAI API key
+
+## 🔧 For Developers
+
+### Architecture Overview
+- handlers/ - User interaction layer
+- services/ - Business logic layer  
+- utils/ - Shared utilities
+- models/ - Data structures
+
+### Adding New Features
+See AI_ASSISTANT_CONTEXT.md for detailed guide
+
+### Code Style
+- Use type hints
+- Async/await for I/O
+- Comprehensive error handling
+- Logging for debugging
+
+### Roadmap
+See DEVELOPMENT_ROADMAP.md for planned features

@@ -1,0 +1,33 @@
+===== КОРОТКИЙ ВАРИАНТ (для простых задач) =====
+
+У меня есть проект Telegram бота HypeBot v1.0.0
+GitHub: https://github.com/thealinfix/hypebot
+Полностью рабочий, модульная архитектура, 24 Python файла
+
+Задача: [опишите что нужно сделать]
+
+Ключевые файлы:
+- config.py - вся конфигурация
+- bot/handlers/__init__.py - регистрация обработчиков
+- bot/services/ - бизнес логика
+- AI_ASSISTANT_CONTEXT.md - детальная документация
+
+===== ПОЛНЫЙ ВАРИАНТ (для сложных задач) =====
+
+I have a modular Python Telegram bot project called HypeBot for sneaker/fashion monitoring.
+GitHub: https://github.com/thealinfix/hypebot
+Location: ~/hypebot/
+Structure: 24+ Python modules organized in bot/{handlers,services,utils,models}/
+Tech: Python 3.10+, python-telegram-bot, OpenAI API, asyncio
+
+Current features:
+- RSS/API parsing from multiple sources
+- AI content generation (GPT-4, DALL-E 3)
+- Post scheduling and moderation
+- Tag extraction and filtering
+- Auto-publishing from favorites
+
+Current task: [describe what you need]
+
+All code follows async/await patterns with proper error handling.
+Check AI_ASSISTANT_CONTEXT.md for detailed architecture.
