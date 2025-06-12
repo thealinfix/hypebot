@@ -108,7 +108,7 @@ async def handle_channel_input(update: Update, context: ContextTypes.DEFAULT_TYP
         
         await update.message.reply_text(
             f"✅ Канал изменен на: <code>{new_channel}</code>\n\n"
-            f"Все новые публикации будут отправляться в этот канал.",
+            "Все новые публикации будут отправляться в этот канал.",
             parse_mode=ParseMode.HTML
         )
     else:
@@ -279,7 +279,7 @@ async def generate_thought_with_image(update: Update, context: ContextTypes.DEFA
         
         await loading_msg.edit_text(
             f"💭 <b>Пост-размышление:</b>\n\n{final_text}\n\n"
-            f"📸 Изображение прикреплено",
+            "📸 Изображение прикреплено",
             parse_mode=ParseMode.HTML,
             reply_markup=keyboard
         )

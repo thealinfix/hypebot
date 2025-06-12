@@ -257,7 +257,7 @@ class Scheduler:
             if ADMIN_CHAT_ID and (removed_count > 0 or expired):
                 await bot.send_message(
                     ADMIN_CHAT_ID,
-                    f"🧹 Очистка завершена:\n"
+                    "🧹 Очистка завершена:\n"
                     f"• Удалено старых постов: {removed_count}\n"
                     f"• Удалено просроченных запланированных: {len(expired)}"
                 )
