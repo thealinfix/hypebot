@@ -56,7 +56,7 @@ def setup_handlers(application: Application) -> None:
         application.add_handler(CallbackQueryHandler(handler_func, pattern=pattern))
         logger.debug(f"Registered admin callback handler: {pattern}")
     
-    logger.info(f"Handler setup complete. Total handlers: "
+    logger.info("Handler setup complete. Total handlers: "
                 f"{len(command_handlers) + len(admin_handlers)} commands, "
                 f"{len(message_handlers)} message types, "
                 f"{len(callback_handlers) + len(admin_callback_handlers)} callbacks")
@@ -72,7 +72,7 @@ async def error_handler(update, context):
         from config import ADMIN_CHAT_ID
         if ADMIN_CHAT_ID and update and update.effective_user:
             error_message = (
-                f"⚠️ Произошла ошибка:\n"
+                "⚠️ Произошла ошибка:\n"
                 f"User: {update.effective_user.id}\n"
                 f"Error: {type(context.error).__name__}: {str(context.error)}"
             )

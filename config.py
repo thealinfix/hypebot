@@ -2,11 +2,15 @@
 Configuration module for HypeBot
 """
 import os
+import logging
 from pathlib import Path
 from dotenv import load_dotenv
 
 # Load environment variables
 load_dotenv()
+
+# Logger
+logger = logging.getLogger(__name__)
 
 # Base paths
 BASE_DIR = Path(__file__).parent
@@ -43,7 +47,9 @@ if ADMIN_CHAT_ID:
     try:
         ADMIN_CHAT_ID = int(ADMIN_CHAT_ID)
     except ValueError:
-        print(f"Warning: ADMIN_CHAT_ID must be a number, got: {ADMIN_CHAT_ID}")
+        logger.warning(
+            "ADMIN_CHAT_ID must be a number, got: %s", ADMIN_CHAT_ID
+        )
         ADMIN_CHAT_ID = None
 
 # Validation
